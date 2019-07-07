@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/estiloDT.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/css/estilos.css">
+    <link rel="stylesheet" href="../styles/css/estiloDT.css">
+	<link rel="stylesheet" href="../styles/bootstrap/bootstrap.css">
+	<link rel="stylesheet" href="../styles/bootstrap/bootstrap.min.css">
     <script src="http://momentjs.com/downloads/moment.min.js"></script>
     <title>Monitor de Tareas</title>
     
