@@ -68,7 +68,7 @@ $current_id = $_SESSION['idUser'];
                         $consulta_dos = $conexion -> prepare($sentencia);
                         $consulta_dos -> execute();
                         $cont = 1;
-                        while($fila = $consulta_dos -> fetch()){ ?>
+                        while($fila = $consulta_dos -> fetch()){     ?>
                         <tr>
                             <th scope="row"><?php echo $cont++; ?></th>
                             <td><?php echo $fila['titulo']; ?></td>
@@ -120,7 +120,11 @@ $current_id = $_SESSION['idUser'];
                             <td><?php echo $fila['titulo']; ?></td>
                             <td><?php echo $fila['nombre_Apellido']; ?></td>
                             <td><?php echo $fila['fecah_venc']; ?></td>
-                            <td><button onclick="location.href='seguimiento.php?name=<?php echo $cont-1; ?>'" type="button" class="btn btn-info">Ver</button></td>                         
+                            <td>
+                            <form action="seguimiento.php" method="POST">
+                                <input name="title" type="text" value="<?php echo $fila['titulo'];  ?>" style="display: none">
+                                <input name="fechaFin" type="text" value="<?php echo $fila['fecah_venc'];  ?>" style="display: none">
+                            <button type="submit" class="btn btn-info">Ver</button></form></td>                         
                         </tr>
                         <?php
                         }
@@ -159,7 +163,7 @@ $current_id = $_SESSION['idUser'];
                         <td><?php echo $fila['nombre_Apellido']; ?></td>
                         <td><?php echo $fila['fecah_venc']; ?></td>
                         <td>
-                            <button  type="button" class="btn btn-primary">Editar</button>
+                            <button onclick="location.href='formulario.php'" type="button" class="btn btn-primary">Editar</button>
                             <button onclick="location.href='eliminarTarea.php?id_elim=<?php echo $fila['id_tarea']?>'" type="button" class="btn btn-danger">X</button>
                         </td>
                     </tr>

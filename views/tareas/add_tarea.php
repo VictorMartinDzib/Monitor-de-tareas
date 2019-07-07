@@ -1,21 +1,3 @@
-<?php
-    session_start();
-    if(!isset($_SESSION["usuario"])){
-        header('Location: login.php');
-    } 
-
-    /** Recuperando conexion a base de datos */
-    require_once('baseDatos.php');
-    $bd = BaseDeDatos::getInstancia();
-    $conexion = $bd -> getConexion();
-
-    $_SESSION['num1'] = 7;
-    $_SESSION['num2'] = 3;
-
-    
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +18,7 @@
     <div id="caja_id" class="caja">
         <div id="cabecera_id" class="cabecera">
             <h1 class="titulo" >MONITOR DE TAREAS</h1>
-            <h3> <?php echo $_SESSION['nombreCompleto']; ?><button onclick="location.href='cierreSesion.php'" type="button" class="btn btn-secondary">Salir</button></h3>
+            <h3> <button onclick="location.href='cierreSesion.php'" type="button" class="btn btn-secondary">Salir</button></h3>
         </div>
        
         <div id="contenido_id" class="contenido">
@@ -63,7 +45,7 @@
                         <td><input name="dias_faltantes" id="diasf_id" class="form-control" type="text" placeholder="<?php echo $_SESSION['num1'] + $_SESSION['num2']; ?>" disabled></td>
                     </tr>
                     <tr>
-                        <td><labelfor="asignado_id">Asignar a:</label></td>
+                        <td><label for="asignado_id">Asignar a:</label></td>
                         <td>
                             <select  class="form-control" name="asignador" id="spiner">
                                 <option value="0">Selecciona</option>

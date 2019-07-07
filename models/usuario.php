@@ -8,19 +8,6 @@
         private $estatus_user;
         private static $instancia = null;
 
-    
-        /*public function iniciarSesion($user, $pass){
-            require_once('baseDatos.php');
-            $bd = BaseDeDatos::getInstancia();
-            $conexion = $bd -> getConexion();
-
-
-            $id_user = "SELECT id_usuario FROM usuarios WHERE nombreUsuario = '$user' OR correo = '$user' AND contrasenia = '$pass'";
-
-
-            $consulta = $conexion -> query($id_user);
-        }*/
-        
         public static function getInstanciaU(){
             if(self::$instancia == null){
                 self::$instancia = new Usuario();

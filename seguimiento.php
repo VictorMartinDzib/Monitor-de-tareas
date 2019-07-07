@@ -3,12 +3,14 @@
 
 <?php
 
-session_start();
-if(!isset($_SESSION['usuario'])){
-    header('Location: dashboard.php');
-}
+    session_start();
+    if(!isset($_SESSION['usuario'])){
+        header('Location: dashboard.php');
+    }
 
-
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $title = $_POST['title'];
+        $fechaF = $_POST['fechaFin'];
 ?>
 <head>
     <meta charset="UTF-8">
@@ -42,8 +44,8 @@ if(!isset($_SESSION['usuario'])){
                 <a class="btn btn-light" href="dashboard.php">ir a Dashboard</a>
             </div>
             <p>
-                <h6>Nombre de la tarea: <i> <?php echo $_SESSION['Tarea']; ?></i></h6>
-                <h6>Fecha de vencimiento: <?php echo $_SESSION['Vencimiento']; ?></h6><br>
+                <h6>Nombre de la tarea: <i> <?php echo $title; ?></i></h6>
+                <h6>Fecha de vencimiento: <?php echo $fechaF; ?></h6><br>
                 <h6>Actividades de la tarea:</h6>
             </p>
             <table class="table table-striped">
@@ -83,3 +85,5 @@ if(!isset($_SESSION['usuario'])){
 </body>
 
 </html>
+
+<?php } ?>

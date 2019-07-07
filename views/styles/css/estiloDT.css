@@ -1,0 +1,49 @@
+form{
+    margin-top: 50px;
+    display: inline-block;
+}
+h1{
+    width: auto;
+    margin-left: 70px;
+    margin-top: 45px;
+}
+h3{
+    width: auto;
+    text-align: end;
+    margin-right: 20px;
+}
+.cabecera{
+    float: left;
+}
+textarea{
+    border: solid 3px black;
+    resize: none;
+}
+table{
+    border: none;
+}
+tr{
+    border: none;
+    text-align: initial;
+}
+
+.contenido{
+    text-align: initial;
+}
+#btn_terminar_id{
+    padding: 5px 5px 5px 5px;
+    text-align: end;
+    margin-left: 400px;
+}
+label{
+    font-size: 20px;
+}
+p{
+    font-size:30px; 
+}
+td{
+    width: 500px;
+}
+.labels{
+    width: 200px;
+}
