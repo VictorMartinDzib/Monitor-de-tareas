@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../styles/css/estilos.css">
-    <link rel="stylesheet" href="../styles/css/estiloDT.css">
-	<link rel="stylesheet" href="../styles/bootstrap/bootstrap.css">
-	<link rel="stylesheet" href="../styles/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="views/styles/css/estilos.css">
+    <link rel="stylesheet" href="views/styles/css/estiloDT.css">
+	<link rel="stylesheet" href="views/styles/bootstrap/bootstrap.css">
+	<link rel="stylesheet" href="views/styles/bootstrap/bootstrap.min.css">
     <script src="http://momentjs.com/downloads/moment.min.js"></script>
     <title>Monitor de Tareas</title>
     
@@ -43,24 +43,13 @@
                     </tr>
                     <tr>
                         <td><label for="diasf_id">Dias faltantes:</label></td>
-                        <td><input name="dias_faltantes" id="diasf_id" class="form-control" type="text" placeholder="<?php echo $_SESSION['num1'] + $_SESSION['num2']; ?>" disabled></td>
+                        <td><input name="dias_faltantes" id="diasf_id" class="form-control" type="text" placeholder="none" disabled></td>
                     </tr>
                     <tr>
                         <td><label for="asignado_id">Asignar a:</label></td>
                         <td>
                             <select  class="form-control" name="asignador" id="spiner">
                                 <option value="0">Selecciona</option>
-                                <?php
-                                    $omitir = $_SESSION['nombreCompleto'];
-                                    $sentencia = "SELECT nombre_Apellido, id_usuario FROM usuarios WHERE NOT nombre_Apellido = '$omitir' AND estatus = 1";
-                                    $consulta = $conexion -> prepare($sentencia);
-                                    $consulta -> execute();
-
-                                    while($fila = $consulta -> fetch()){ ?>
-                                            <option value="<?php echo $fila['id_usuario']; ?>"> <?php echo $fila['nombre_Apellido']; ?></option>
-                                        <?php
-                                    }
-                                ?>
                             </select>
                         </td>
                     </tr>
