@@ -4,11 +4,15 @@
         public function __construct($template=null, $params=[]){
             $this -> setTemplate($template);
             $this -> setParams($params);
+
+            require_once ROOT_PATH . '/libs/AyudaVistas.php';
+            $helper=new AyudaVistas();
+
         }
         public function setTemplate($valTemplate){
             //Ssaber si una variable existe y no es null
-            if(isset($template)){
-                $this -> $template = $valTemplate;
+            if(isset($valTemplate)){
+                $this -> template = $valTemplate;
             }
         }
 
@@ -18,6 +22,10 @@
                     $this -> {$key} = $value;
                 }
             }
+        }
+        public function render(){
+            require_once ROOT_PATH . '/views/' . $this -> template . '.php';
+        
         }
 
         public function __toString()

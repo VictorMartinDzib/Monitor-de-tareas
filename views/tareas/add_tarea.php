@@ -1,3 +1,7 @@
+<?php
+if(isset($_SESSION['us'])){
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +30,7 @@
             <form action="guardarDatos.php" method="POST">
                 <p>Detalles de las tareas  
                     <button onclick="location.href='guardarDatos.php'" id="btn_terminar_id" type="submit"
-                    class="btn btn-success">Terminar</button><a class="btn btn-light" href="dashboard.php">ir a Dashboard</a></p>
+                    class="btn btn-success">Terminar</button><a class="btn btn-light" href="dashboard">ir a Dashboard</a></p>
                 <table>
                     <tr>
                         <td> <label for="tarea_id">Tarea:</label></td>
@@ -71,3 +75,8 @@
 </body>
 
 </html>
+<?php
+}else{
+    header('Location: index');
+}
+?>

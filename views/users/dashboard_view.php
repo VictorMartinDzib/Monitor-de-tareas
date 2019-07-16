@@ -1,4 +1,11 @@
+<?php 
 
+if(isset($_SESSION['us']))
+{
+    $tabla1 = $this -> tarea1;
+    $tabla2 = $this -> tarea2;
+    $tabla3 = $this -> tarea3;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,16 +25,13 @@
         <div id="cabecera_id" class="cabecera">
             <h1 class="titulo">MONITOR DE TAREAS</h1>
 
-            <h3> 
-            <button onclick="location.href='cierreSesion.php'" type="button" class="btn btn-secondary">Salir</button></h3>
+            <h3> <?php echo $_SESSION['us'];  ?>
+            <button onclick="location.href='<?php echo 'exit'; ?> '" type="button" class="btn btn-secondary">Salir</button></h3>
         </div>
         <div id="contenido_id" class="contenido">
             <div class="txt_btn">
                 <h4 class="title1">Tareas vencidas </h4>
-
-                <button onclick="location.href='formulario.php'"
-                 id="btn_agregar_id" type="button"
-                    class="btn btn-success">Agregar Tarea</button>
+                <a href="tarea" id="btn_agregar_id" type="button" class="btn btn-success">Agregar Tarea</a>
             </div>
             <br>
 
@@ -40,17 +44,20 @@
                         <th scope="col">Fecha Vencimiento</th>
                         <th scope="col"></th>
                     </tr>
+                
                 </thead>
-                <tbody>
+                <tbody> 
+                <?php
+                $cont = 1; 
+                foreach ($tabla1 as $fila){ ?>
                         <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <th scope="row"> <?php echo $cont++; ?></th>
+                            <td><?php echo $fila->titulo; ?>  </td>
+                            <td><?php echo $fila->nombre_Apellido; ?>  </td>
+                            <td><?php echo $fila->fecah_venc; ?>  </td>
                             <td> <button type="button" class="btn btn-danger">X</button></td>
-                           
                         </tr>
-
+                <?php } ?>
                 </tbody>
             </table><br>
             
@@ -68,20 +75,23 @@
                 <tbody>
                         
                        
+                    <?php
+                        $cont++; 
+                        foreach($tabla2 as $fila){ ?>
                         <tr>
-                       
-                            
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <th scope="row"> <?php echo $cont++; ?> </th>
+                            <td> <?php echo $fila->titulo; ?> </td>
+                            <td> <?php echo $fila->nombre_Apellido; ?> </td>
+                            <td> <?php echo $fila->fecah_venc; ?> </td>
                             <td>
                             <form action="seguimiento.php" method="POST">
                                 <input name="title" type="text" style="display: none">
-                                <input name="fechaFin" type="text" >
-                            <button type="submit" class="btn btn-info">Ver</button></form></td>                         
+
+                            <button type="submit" class="btn btn-info">Ver</button></form></td>                      
                         </tr>
+                        <?php
+                            }
+                        ?>
                 </tbody>
             </table><br>
 
@@ -98,20 +108,33 @@
                 </thead>
                 <tbody>
 
+                <?php
+                    $cont = 1;
+                    foreach ($tabla3 as $fila) {
+                 ?>
                     <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th scope="row"> <?php echo $cont++; ?> </th>
+                        <td> <?php echo $fila ->titulo; ?> </td>
+                        <td> <?php echo $fila->nombre_Apellido; ?> </td>
+                        <td> <?php echo $fila->fecah_venc;  ?> </td>
                         <td>
                             <button type="button" class="btn btn-primary">Editar</button>
                             <button type="button" class="btn btn-danger">X</button>
                         </td>
                     </tr>
+                <?php 
+                    }
+                ?>
 
                 </tbody>
             </table>
         </div>
     </div>
 </body>
-</html>
+</html> 
+
+<?php
+    }else{
+        header('Location: regresar');
+    }
+?>

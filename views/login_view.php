@@ -1,4 +1,9 @@
 
+<?php
+    function say(){
+        echo $_POST['usuario'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +16,6 @@
     <title>Monitor de Tareas</title>
 </head>
 <body> 
-
     <div id="caja_id" class="caja">
         <div id="cabecera_id" class="cabecera">
             <h1 class="titulo">MONITOR DE TAREAS</h1>
@@ -21,13 +25,13 @@
                     <div id="foto_id">
                     </div>
                     <br>
-                    <form action="validacion.php" method="POST">
+                    <form action=" <?php echo "logea"; ?>" method="POST">
                         <input name="usuario" id="username" class="form-control" type="text" placeholder="Usuario / Correo electrónico">
                         <br>
                         <input name="contrasenia" id="password" class="form-control" type="password" placeholder="Clave">
                         <br>
                         <button id="acceder" type="submit" class="btn btn-primary">Acceder</button>
-                        <button id="cancel" type="button" class="btn btn-danger">Cancelar</button>
+                        <button id="cancel" type="button" class="btn btn-success">Registrarse</button>
                         <br><br>
                         <a id="btn_oc_id" href="">Olvidé mi contraseña</a>
                     </form>
