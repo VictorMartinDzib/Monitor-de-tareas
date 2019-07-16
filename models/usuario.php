@@ -43,21 +43,4 @@ require_once ROOT_PATH . '/libs/DataBase.php';
         
     }
 
-    /*
-    $user1 = new Usuario('victor', '12345');
-    $user1 -> login();public static function logout(){
-            session_destroy();
-
-            header('Location: ../views/login_view.php');
-        }
-        public static function getNombre($nom){
-            //require_once('../libs/DataBase.php');
-            $conn = DataBase::getIntance();
-
-            $sql = "SELECT nombre_Apellido FROM usuarios WHERE nombreUsuario = $nom";
-            $consulta = $conn -> query($sql);
-            $nombreC = $consulta -> fetch();
-
-            return $nombreC['nombre_Apellido'];    
-        } */
 ?>

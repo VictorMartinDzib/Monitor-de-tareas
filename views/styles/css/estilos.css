@@ -25,7 +25,6 @@ body{
     width: 100%;
     height: 120px;
     margin: 0 auto;
-    border-block-end: solid 4px black;
 }
 
 .contenido{
@@ -41,29 +40,20 @@ body{
     text-align: center;
     overflow: hidden;
     border-radius: 30px;
-    border: solid 3px black;
+    border: solid 1px black;
 }
 
 #foto_id{
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: solid 3px black;
+    border: solid 1px black;
 }
 
 input{
     border: solid 3px black;
 }
 
-/*
-#acceder, #cancel{
-    padding: 5px;
-    border: solid 2px black;
-    font-size: 20px;
-    text-decoration: none;
-    color: white;
-    background: pink;
-}*/
 
 table{
     text-align: center;

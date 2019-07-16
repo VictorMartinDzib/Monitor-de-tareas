@@ -9,8 +9,8 @@
         public function getActividades(){
             return new View('activitys/add_activity', ['contacto' => 'CONTACTANOS']);
         }
-        public function getTarea(){
-            return new View('tareas/add_tarea');
+        public function getTarea($user){
+            return new View('tareas/add_tarea', ['nombreUsuario']);
         }
         public function getLogin(){
             return new View('login_view');

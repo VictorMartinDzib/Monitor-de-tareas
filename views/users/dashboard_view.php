@@ -25,7 +25,7 @@ if(isset($_SESSION['us']))
         <div id="cabecera_id" class="cabecera">
             <h1 class="titulo">MONITOR DE TAREAS</h1>
 
-            <h3> <?php echo $_SESSION['us'];  ?>
+            <h3> <?php echo $this -> name;  ?>
             <button onclick="location.href='<?php echo 'exit'; ?> '" type="button" class="btn btn-secondary">Salir</button></h3>
         </div>
         <div id="contenido_id" class="contenido">
@@ -84,7 +84,7 @@ if(isset($_SESSION['us']))
                             <td> <?php echo $fila->nombre_Apellido; ?> </td>
                             <td> <?php echo $fila->fecah_venc; ?> </td>
                             <td>
-                            <form action="seguimiento.php" method="POST">
+                            <form action="ActualTask" method="POST">
                                 <input name="title" type="text" style="display: none">
 
                             <button type="submit" class="btn btn-info">Ver</button></form></td>                      

@@ -1,5 +1,6 @@
 <?php
 if(isset($_SESSION['us'])){
+    $listaUsuario = $this -> list;
 ?>
 
 <!DOCTYPE html>
@@ -23,14 +24,14 @@ if(isset($_SESSION['us'])){
     <div id="caja_id" class="caja">
         <div id="cabecera_id" class="cabecera">
             <h1 class="titulo" >MONITOR DE TAREAS</h1>
-            <h3> <button onclick="location.href='cierreSesion.php'" type="button" class="btn btn-secondary">Salir</button></h3>
+            <h3> <?php echo $this -> name; ?> <button onclick="location.href='<?php echo 'exit'; ?>'" type="button" class="btn btn-secondary">Salir</button></h3>
         </div>
        
         <div id="contenido_id" class="contenido">
-            <form action="guardarDatos.php" method="POST">
+            <form action="<?php echo "save"; ?>" method="POST">
                 <p>Detalles de las tareas  
-                    <button onclick="location.href='guardarDatos.php'" id="btn_terminar_id" type="submit"
-                    class="btn btn-success">Terminar</button><a class="btn btn-light" href="dashboard">ir a Dashboard</a></p>
+                    <button id="btn_terminar_id" type="submit"
+                    class="btn btn-success">Crear Tarea</button><a class="btn btn-light" href="dashboard">ir a Dashboard</a></p>
                 <table>
                     <tr>
                         <td> <label for="tarea_id">Tarea:</label></td>
@@ -52,8 +53,17 @@ if(isset($_SESSION['us'])){
                     <tr>
                         <td><label for="asignado_id">Asignar a:</label></td>
                         <td>
-                            <select  class="form-control" name="asignador" id="spiner">
+                            <select  class="form-control" name="asignado" id="spiner">
                                 <option value="0">Selecciona</option>
+                                <?php
+                                    foreach($listaUsuario as $usuario){
+                                ?>
+                                <option value="<?php echo $usuario -> id_usuario; ?>"> 
+                                    <?php echo $usuario -> nombre_Apellido;  ?>
+                                </option>
+                                <?php
+                                    }
+                                ?>
                             </select>
                         </td>
                     </tr>
